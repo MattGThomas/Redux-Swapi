@@ -17,7 +17,7 @@ export function loadData() {
             dispatch({ type: SUCCESS, payload: res.data.results})
         })
         .catch(err => {
-            dispatch({ type: FAILURE, error: err})
+            dispatch({ type: FAILURE, payload: err})
         })
     }   
 }
