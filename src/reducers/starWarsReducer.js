@@ -28,7 +28,7 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        errorMessage: action.payload.message
+        errorMessage: action.payload
       }
     }
     // Fill me in with the important reducers

@@ -27,12 +27,19 @@ class CharacterListView extends React.Component {
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    errorMessage: state.charsReducer.errorMessage,
+    fetching: state.charsReducer.fetching,
+    characters: state.charsReducer.characters
+  }
+}
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
 export default connect(
-  null /* mapStateToProps replaces null here */,
+  mapStateToProps /* mapStateToProps replaces null here */,
   {
     /* action creators go here */
+    loadData
   }
 )(CharacterListView);

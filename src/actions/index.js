@@ -11,11 +11,10 @@ export const FAILURE = 'FAILURE'
 export function loadData() {
     return (dispatch) => {
         dispatch({type: FETCHING})
-        
-        const swapi = axios.get('https://swapi.co/api/people/')
-        console.log(swapi)
-        swapi.then((res) => {
-            dispatch({ type: SUCCESS, payload: res.data})
+
+        axios.get('https://swapi.co/api/people/')
+        .then((res) => {
+            dispatch({ type: SUCCESS, payload: res.data.results})
         })
         .catch(err => {
             dispatch({ type: FAILURE, error: err})
